@@ -7,6 +7,7 @@ class FormularioCadastro extends Component {
     super(props);
     this.titulo ="";
     this.texto ="";
+    this.categoria="Sem categoria";
   }
 
   _handleMudancaTitulo(evento){
@@ -15,6 +16,11 @@ class FormularioCadastro extends Component {
     //console.log(this.titulo)
   }
   
+  _handleMudancaCategoria(evento){
+    evento.stopPropagation();
+    this.categoria = evento.target.value;
+  }
+
   _handleMudancaTexto(evento){
     evento.stopPropagation();
     this.texto = evento.target.value
@@ -24,7 +30,7 @@ class FormularioCadastro extends Component {
   _criarNota(evento){
     evento.preventDefault(); //o comportamento do onSubmit é recarregar a página, e isso vai fazer com quem ela não recarregue
     evento.stopPropagation();
-    this.props.criarNota(this.titulo, this.texto);
+    this.props.criarNota(this.titulo, this.texto, this.categoria);
     //console.log(`uma nova nota foi criada` + this.titulo + " " + this.texto)
   }
 
@@ -33,7 +39,11 @@ class FormularioCadastro extends Component {
       <form className="form-cadastro"
       onSubmit={this._criarNota.bind(this)}
       >
-        <select className="form-cadastro_input">
+        <select
+          onChange={this._handleMudancaCategoria.bind(this)}
+          className="form-cadastro_input"
+        >
+          <option>Sem categoria</option>
           {this.props.categorias.map(categoria =>{
             return <option>{categoria}</option>
           })}

@@ -19,8 +19,8 @@ class App extends Component {
   }
 
   //criarNota é uma propriedade props do FormularioCadastro
-  criarNota(titulo, texto){
-    const novaNota = {titulo, texto};
+  criarNota(titulo, texto, categoria){
+    const novaNota = {titulo, texto, categoria};
     const novoArrayNotas = [...this.state.notas,novaNota] 
     const novoEstado = {
       notas:novoArrayNotas
@@ -37,7 +37,6 @@ class App extends Component {
     this.setState(novoEstado)
 
   }
-
 
   deletarNota(index){
     let arrayNotas = this.state.notas;
