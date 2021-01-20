@@ -2,6 +2,12 @@
 
 O seu gerenciador de notas.
 
+
+## Preview Desktop
+
+![gnotas](https://user-images.githubusercontent.com/66969881/105213555-c243e580-5b46-11eb-98a2-01bab0d48ce7.png)
+
+
 ## Cloning project
 
 ```bash
